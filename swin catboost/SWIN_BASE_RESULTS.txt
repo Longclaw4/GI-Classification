@@ -1,0 +1,67 @@
+================================================================================
+SWIN-BASE + MOBILEVIT HYBRID MODEL - COMPLETE RESULTS
+================================================================================
+
+ARCHITECTURE
+--------------------------------------------------------------------------------
+Backbone 1:      Swin-Base (ImageNet-1K pretrained)
+Backbone 2:      MobileViT (ImageNet pretrained)
+Feature Fusion:  1024 + 512 = 1536-dim -> 256-dim
+Classifier:      CatBoost (GPU optimized)
+Dataset:         Kvasir-v2 (8,000 images, 8 classes)
+
+================================================================================
+TRAINING SET METRICS
+================================================================================
+Accuracy:        100.00%
+Precision:       100.00%
+Recall (TPR):    100.00%
+F1-Score:        100.00%
+AUROC:           100.00%
+TPR:             100.00%
+FPR:             0.00%
+Loss:            0.0296
+Time:            0.07 seconds
+
+================================================================================
+VALIDATION SET METRICS
+================================================================================
+Accuracy:        87.83%
+Precision:       87.81%
+Recall (TPR):    87.83%
+F1-Score:        87.79%
+AUROC:           98.96%
+TPR:             87.83%
+FPR:             1.74%
+Loss:            0.3352
+Time:            0.02 seconds
+
+================================================================================
+TEST SET METRICS
+================================================================================
+Accuracy:        85.92%
+Precision:       85.99%
+Recall (TPR):    85.92%
+F1-Score:        85.92%
+AUROC:           98.86%
+TPR:             85.92%
+FPR:             2.01%
+Loss:            0.3506
+Time:            0.02 seconds
+
+================================================================================
+OVERFITTING ANALYSIS
+================================================================================
+Training vs Test Gap:    +14.08%
+Validation vs Test Gap:  +1.92%
+
+⚠️ SIGNIFICANT OVERFITTING DETECTED
+
+================================================================================
+CONCLUSION
+================================================================================
+Test Accuracy: 85.92%
+Status: ⚠️ Overfitting issues
+
+Note: Using ImageNet-pretrained MobileViT instead of Kvasir-trained
+      weights resulted in lower performance compared to Swin-Small hybrid.

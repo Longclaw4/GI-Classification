@@ -1,0 +1,84 @@
+================================================================================
+SWIN-SMALL + MOBILEVIT (KVASIR) - OPTUNA TPE - COMPLETE RESULTS
+================================================================================
+
+ARCHITECTURE
+--------------------------------------------------------------------------------
+Backbone 1:      Swin-Small (ImageNet-1K pretrained)
+Backbone 2:      MobileViT (Kvasir-v2 pretrained - CUSTOM ARCHITECTURE)
+Feature Fusion:  768 + 384 = 1152-dim -> 256-dim
+Classifier:      CatBoost (Optuna TPE optimized)
+Optimization:    50 trials, TPE sampler
+Dataset:         Kvasir-v2 (8,000 images, 8 classes)
+
+BEST HYPERPARAMETERS
+--------------------------------------------------------------------------------
+depth               : 4
+learning_rate       : 0.2708160864249968
+iterations          : 850
+l2_leaf_reg         : 2.9110519961044856
+border_count        : 72
+Best Val Accuracy: 91.83%
+
+================================================================================
+TRAINING SET METRICS
+================================================================================
+Accuracy:        99.14%
+Precision:       99.14%
+Recall (TPR):    99.14%
+F1-Score:        99.14%
+AUROC:           99.99%
+TPR:             99.14%
+FPR:             0.12%
+Loss:            0.0713
+Time:            0.34 seconds
+
+================================================================================
+VALIDATION SET METRICS
+================================================================================
+Accuracy:        91.83%
+Precision:       91.86%
+Recall (TPR):    91.83%
+F1-Score:        91.80%
+AUROC:           99.32%
+TPR:             91.83%
+FPR:             1.17%
+Loss:            0.2367
+Time:            0.04 seconds
+
+================================================================================
+TEST SET METRICS
+================================================================================
+Accuracy:        90.58%
+Precision:       90.58%
+Recall (TPR):    90.58%
+F1-Score:        90.57%
+AUROC:           99.37%
+TPR:             90.58%
+FPR:             1.35%
+Loss:            0.2383
+Time:            0.05 seconds
+
+================================================================================
+OVERFITTING ANALYSIS
+================================================================================
+Training vs Test Gap:    +8.56%
+Validation vs Test Gap:  +1.25%
+
+
+================================================================================
+CONCLUSION
+================================================================================
+Test Accuracy: 90.58%
+Test AUROC:    99.37%
+Status:        ✅ EXCELLENT PERFORMANCE
+
+Using Kvasir-pretrained MobileViT with Optuna TPE optimization
+achieved 90.58% test accuracy with 99.37% AUROC.
+
+Comparison:
+- Original (no Optuna): 92.17% accuracy
+- Optuna TPE (Kvasir):  90.58% accuracy
+- Optuna TPE (ImageNet): 85.92% accuracy
+
+The Kvasir-pretrained weights provide ~5% boost over ImageNet!
